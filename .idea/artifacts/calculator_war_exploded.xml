@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" build-on-make="true" name="calculator:war exploded">
-    <output-path>D:/ProgramFiles/apache-tomcat-7.0.67/webapps/calculator</output-path>
+    <output-path>$PROJECT_DIR$/target/calculator</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -13,14 +13,17 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-expression:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:4.2.4.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:3.1.0" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: aopalliance:aopalliance:1.0" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:2.1.0" />
         </element>
       </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/calculator/META-INF/MANIFEST.MF" />
+      </element>
       <element id="javaee-facet-resources" facet="calculator/web/Web" />
-      <element id="javaee-facet-resources" facet="calculator/javaeeApplication/javaEEApplication" />
     </root>
   </artifact>
 </component>
