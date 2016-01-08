@@ -47,7 +47,7 @@ public class CalHelper {
      * @param v2 除数
      * @return 两个数的商
      */
-    public static double div(String v1, String v2) throws Exception {
+    public static double div(String v1, String v2) {
         BigDecimal b1 = new BigDecimal(v1);
         BigDecimal b2 = new BigDecimal(v2);
 

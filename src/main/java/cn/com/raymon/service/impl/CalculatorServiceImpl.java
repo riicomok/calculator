@@ -11,15 +11,14 @@ import java.util.Collections;
 import java.util.Stack;
 
 @Service("/calculatorService")
-public class CalculatorServiceImpl implements CalculatorService{
+public class CalculatorServiceImpl implements CalculatorService {
 
     private Stack<String> postfixStack = new Stack<String>();//逆波兰表达式栈
     private Stack<Character> opStack = new Stack<Character>();//运算符表达式栈
-    private int[] priority = new int[]{0, 3, 2, 1, -1, 0, 2};//运算符优先级
+    private int[] priority = new int[]{0, 3, 2, 1, -1, 1, -1, 2};//运算符优先级,ASCII
 
     /**
      * 计算1，调用js方法计算
-     *
      */
     public String cal1(String expression) {
         String result;
@@ -39,7 +38,8 @@ public class CalculatorServiceImpl implements CalculatorService{
      *
      * @return 计算结果
      */
-    public String cal2(String expression) throws Exception{
+    public String cal2(String expression) {
+
         Stack<String> resultStack = new Stack<String>();
         postfixStack = transform(expression);
         Collections.reverse(postfixStack);
@@ -55,12 +55,12 @@ public class CalculatorServiceImpl implements CalculatorService{
                 resultStack.push(tempResult);
             }
         }
+        System.out.println(expression + "=" + String.valueOf(resultStack.peek()));
         return String.valueOf(resultStack.pop());
     }
 
     /**
      * 中缀表达式转换成后缀表达式
-     *
      */
     private Stack<String> transform(String expression) {
         opStack.push('\0');//压入\0
@@ -108,7 +108,6 @@ public class CalculatorServiceImpl implements CalculatorService{
 
     /**
      * 判断是否是运算符
-     *
      */
     private boolean isOperator(char c) {
         return c == '+' || c == '-' || c == '*' || c == '/' || c == '(' || c == ')';
@@ -117,7 +116,6 @@ public class CalculatorServiceImpl implements CalculatorService{
     /**
      * 比较读到的运算符与栈顶运算符的优先级，
      * cuurentOp < peekOp 返回true
-     *
      */
     private boolean compare(Character cuurentOp, Character peekOp) {
         return priority[peekOp - 40] >= priority[cuurentOp - 40];
@@ -129,7 +127,7 @@ public class CalculatorServiceImpl implements CalculatorService{
      *
      * @return 计算后得到的字符串
      */
-    private String calByOp(String firstValue, String secondValue, char currentOp) throws Exception{
+    private String calByOp(String firstValue, String secondValue, char currentOp) {
         String result = "";
         switch (currentOp) {
             case '+':

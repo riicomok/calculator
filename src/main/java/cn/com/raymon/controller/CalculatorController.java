@@ -1,4 +1,4 @@
-package cn.com.raymon.action;
+package cn.com.raymon.controller;
 
 import cn.com.raymon.service.CalculatorService;
 import org.springframework.stereotype.Controller;
@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping(value = "/calculator")
-public class CalculatorAction {
+public class CalculatorController {
     @Resource
     private CalculatorService calculatorService;
 
