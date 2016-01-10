@@ -17,7 +17,7 @@ public class MainController {
      */
     @RequestMapping(value = "/calculator", method = RequestMethod.GET)
     public String getAdminPage(){
-        return "calculator";
+        return "calculatorPage";
     }
 
     /**
